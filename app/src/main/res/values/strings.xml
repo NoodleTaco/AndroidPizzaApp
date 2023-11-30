@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">CS213Project5New</string>
+    <string name="smallRadioButtonText">Small</string>
+    <string name="mediumRadioButtonText">Medium</string>
+    <string name="largeRadioButtonText">Large</string>
+    <string name="alfredoRadioButtonText">Alfredo</string>
+    <string name="tomatoRadioButtonText">Tomato</string>
 </resources>
