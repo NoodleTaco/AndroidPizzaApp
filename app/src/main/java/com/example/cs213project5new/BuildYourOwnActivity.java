@@ -115,9 +115,10 @@ public class BuildYourOwnActivity extends AppCompatActivity implements AdapterVi
             showToast("Error: More than 7 Toppings selected");
             return;
         }
+
         showToast("Pizza Added to Order");
         globalStoreOrder.getStoreOrder().getCurrentOrder().addPizzaToOrder(pizza);
-        resetOptions();
+        //resetOptions();
         pizza = PizzaMaker.createPizza("BuildYourOwn");
         buildYourOwnOptions();
         updateSelectedToppingsList();
