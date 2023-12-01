@@ -16,7 +16,7 @@ public final class GlobalStoreOrder {
     public void setGlobalStoreOrder(StoreOrder storeOrder){
         this.storeOrder = storeOrder;
     }
-    public StoreOrder getGlobalStoreOrder(){
+    public StoreOrder getStoreOrder(){
         return storeOrder;
     }
 

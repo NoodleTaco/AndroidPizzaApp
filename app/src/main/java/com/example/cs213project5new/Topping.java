@@ -64,4 +64,9 @@ public enum Topping {
 
         return displayNames;
     }
+
+    @Override
+    public String toString(){
+        return getDisplayName();
+    }
 }
