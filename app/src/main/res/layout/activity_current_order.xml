@@ -22,20 +22,20 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="108dp"
+        android:layout_marginTop="37dp"
         android:layout_marginEnd="1dp"
-        android:layout_marginBottom="107dp"
-        app:layout_constraintBottom_toBottomOf="@+id/totalPriceTextView"
+        android:layout_marginBottom="40dp"
+        app:layout_constraintBottom_toBottomOf="@+id/salesTaxTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView3" />
+        app:layout_constraintTop_toTopOf="@+id/textView8" />
 
     <TextView
         android:id="@+id/subtotalTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="56dp"
-        android:layout_marginTop="21dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="56dp"
         android:text="TextView"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
@@ -47,53 +47,56 @@
         android:id="@+id/salesTaxTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="21dp"
-        android:layout_marginEnd="101dp"
+        android:layout_marginEnd="54dp"
+        android:layout_marginBottom="21dp"
         android:text="TextView"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        app:layout_constraintEnd_toEndOf="@+id/pizzaListView"
-        app:layout_constraintTop_toBottomOf="@+id/pizzaListView" />
+        app:layout_constraintBottom_toTopOf="@+id/totalPriceTextView"
+        app:layout_constraintEnd_toEndOf="@+id/pizzaListView" />
 
     <TextView
         android:id="@+id/totalPriceTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="37dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="30dp"
         android:text="TextView"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        app:layout_constraintBottom_toTopOf="@+id/removePizzaButton"
-        app:layout_constraintStart_toStartOf="@+id/subtotalTextView" />
-
-    <Button
-        android:id="@+id/removePizzaButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="31dp"
-        android:text="Remove Pizza"
-        app:layout_constraintBaseline_toBaselineOf="@+id/placeOrderButton"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/placeOrderButton"
+        app:layout_constraintEnd_toEndOf="@+id/placeOrderButton" />
 
     <Button
         android:id="@+id/placeOrderButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="27dp"
         android:layout_marginBottom="62dp"
         android:text="Place Order"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/removePizzaButton" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/orderNumberTextView"
         android:layout_width="171dp"
         android:layout_height="34dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="43dp"
-        android:layout_marginBottom="31dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginBottom="19dp"
         android:text="TextView"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        app:layout_constraintBottom_toTopOf="@+id/pizzaListView"
+        app:layout_constraintBottom_toTopOf="@+id/textView8"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView3" />
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="145dp"
+        android:text="Click A Pizza To Remove It From The Orderr"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

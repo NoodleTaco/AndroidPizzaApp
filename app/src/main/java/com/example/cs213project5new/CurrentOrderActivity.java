@@ -3,10 +3,13 @@ package com.example.cs213project5new;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class CurrentOrderActivity extends AppCompatActivity {
 
@@ -14,7 +17,7 @@ public class CurrentOrderActivity extends AppCompatActivity {
 
     private ListView pizzaListView;
 
-    private Button removePizzaButton, placeOrderButton;
+    private Button placeOrderButton;
 
     private GlobalStoreOrder globalStoreOrder;
 
@@ -42,8 +45,44 @@ public class CurrentOrderActivity extends AppCompatActivity {
         salesTaxTextView = findViewById(R.id.salesTaxTextView);
         totalPriceTextView = findViewById(R.id.totalPriceTextView);
         pizzaListView = findViewById(R.id.pizzaListView);
-        removePizzaButton = findViewById(R.id.removePizzaButton);
         placeOrderButton = findViewById(R.id.placeOrderButton);
+
+        pizzaListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Pizza selectedPizza = (Pizza) parent.getItemAtPosition(position);
+                if(!globalStoreOrder.getStoreOrder().getCurrentOrder().removePizza(selectedPizza)){
+                    showToast("Error: Pizza not in Order");
+                    return;
+                }
+                showToast("Pizza Removed From Order");
+                updatePizzaListView();
+                updateSalesPrices();
+            }
+        });
+
+        placeOrderButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(globalStoreOrder.getStoreOrder().getCurrentOrder().getPizzaList().isEmpty()){
+                    showToast("Error: No Pizzas in the Order");
+                    return;
+                }
+                globalStoreOrder.getStoreOrder().addOrder();
+                showToast("Order Placed");
+                updatePizzaListView();
+                updateSalesPrices();
+                updateOrderNumber();
+            }
+        });
+    }
+
+    private void showToast(String message) {
+        // Create a Toast object
+        Toast toast = Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT);
+
+        // Display the Toast
+        toast.show();
     }
 
     private void updatePizzaListView(){

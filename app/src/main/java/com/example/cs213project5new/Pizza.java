@@ -38,6 +38,9 @@ public abstract class Pizza implements Serializable {
      */
     protected int extraPriceFromSizeAndExtras(){
         int extra = 0;
+        if(size == null){
+            return -1;
+        }
         if(this.size.equals(Size.MEDIUM)){
             extra += mediumExtraPrice;
         }
