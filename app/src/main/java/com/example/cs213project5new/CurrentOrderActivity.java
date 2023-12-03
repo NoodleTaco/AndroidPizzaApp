@@ -44,7 +44,7 @@ public class CurrentOrderActivity extends AppCompatActivity {
         subtotalTextView = findViewById(R.id.subtotalTextView);
         salesTaxTextView = findViewById(R.id.salesTaxTextView);
         totalPriceTextView = findViewById(R.id.totalPriceTextView);
-        pizzaListView = findViewById(R.id.pizzaListView);
+        pizzaListView = findViewById(R.id.pizzaOrderListView);
         placeOrderButton = findViewById(R.id.placeOrderButton);
 
         pizzaListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

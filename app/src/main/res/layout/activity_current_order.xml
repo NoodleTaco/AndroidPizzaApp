@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ListView
-        android:id="@+id/pizzaListView"
+        android:id="@+id/pizzaOrderListView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="1dp"
@@ -41,7 +41,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintEnd_toEndOf="@+id/orderNumberTextView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pizzaListView" />
+        app:layout_constraintTop_toBottomOf="@+id/pizzaOrderListView" />
 
     <TextView
         android:id="@+id/salesTaxTextView"
@@ -52,7 +52,7 @@
         android:text="TextView"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintBottom_toTopOf="@+id/totalPriceTextView"
-        app:layout_constraintEnd_toEndOf="@+id/pizzaListView" />
+        app:layout_constraintEnd_toEndOf="@+id/pizzaOrderListView" />
 
     <TextView
         android:id="@+id/totalPriceTextView"

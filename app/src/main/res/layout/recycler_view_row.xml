@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="391dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="472dp"
+            app:layout_constraintEnd_toEndOf="@+id/_dynamic"
+            app:layout_constraintStart_toEndOf="@+id/_dynamic">
+
+
+            <ImageView
+                android:id="@+id/recyclerImageView"
+                android:layout_width="184dp"
+                android:layout_height="133dp"
+                android:layout_marginTop="1dp"
+                android:src="@drawable/build_your_own_activity_image"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/pizzaNameTextView"
+                app:srcCompat="@drawable/build_your_own_activity_image" />
+
+            <TextView
+                android:id="@+id/quantityTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="48dp"
+                android:text="TextView"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recyclerPriceTextView" />
+
+            <Button
+                android:id="@+id/increaseQuantityButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="Increase Quantity"
+                app:layout_constraintBottom_toTopOf="@+id/decreaseQuantityButton"
+                app:layout_constraintEnd_toEndOf="@+id/decreaseQuantityButton"
+                app:layout_constraintStart_toEndOf="@+id/_dynamic"
+                app:layout_constraintTop_toBottomOf="@+id/radioGroup3" />
+
+            <Button
+                android:id="@+id/decreaseQuantityButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:text="Decrease Quantity"
+                app:layout_constraintBottom_toTopOf="@+id/recyclerAddToOrderButton"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <RadioGroup
+                android:id="@+id/radioGroup3"
+                android:layout_width="98dp"
+                android:layout_height="150dp"
+                android:layout_marginBottom="140dp"
+                app:layout_constraintBottom_toTopOf="@+id/increaseQuantityButton"
+                app:layout_constraintEnd_toStartOf="@+id/extraCheeseSelectionCheckBox"
+                app:layout_constraintStart_toEndOf="@+id/recyclerImageView"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <RadioButton
+                    android:id="@+id/smallRadioButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="@string/smallRadioButtonText" />
+
+                <RadioButton
+                    android:id="@+id/mediumRadioButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mediumRadioButtonText" />
+
+                <RadioButton
+                    android:id="@+id/largeRadioButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/largeRadioButtonText" />
+            </RadioGroup>
+
+            <RadioGroup
+                android:id="@+id/radioGroup4"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginBottom="3dp"
+                app:layout_constraintBottom_toTopOf="@+id/extraSauceSelectionCheckBox"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/radioGroup3"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <RadioButton
+                    android:id="@+id/tomatoSelectionRadioButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="@string/tomatoRadioButtonText" />
+
+                <RadioButton
+                    android:id="@+id/alfredoSelectionRadioButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/alfredoRadioButtonText" />
+            </RadioGroup>
+
+            <CheckBox
+                android:id="@+id/extraSauceSelectionCheckBox"
+                android:layout_width="121dp"
+                android:layout_height="49dp"
+                android:layout_marginBottom="5dp"
+                android:text="Extra Sauce"
+                app:layout_constraintBottom_toTopOf="@+id/extraCheeseSelectionCheckBox"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/extraCheeseSelectionCheckBox"
+                app:layout_constraintTop_toBottomOf="@+id/radioGroup4" />
+
+            <CheckBox
+                android:id="@+id/extraCheeseSelectionCheckBox"
+                android:layout_width="115dp"
+                android:layout_height="52dp"
+                android:layout_marginTop="8dp"
+                android:text="Extra Cheese"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/radioGroup3" />
+
+            <ListView
+                android:id="@+id/recyclerToppingsListView"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginEnd="25dp"
+                android:layout_marginBottom="22dp"
+                app:layout_constraintBottom_toTopOf="@+id/sauceTextView"
+                app:layout_constraintEnd_toStartOf="@+id/increaseQuantityButton"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recyclerImageView" />
+
+            <TextView
+                android:id="@+id/sauceTextView"
+                android:layout_width="185dp"
+                android:layout_height="26dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="19dp"
+                android:layout_marginBottom="16dp"
+                android:text="TextView"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/decreaseQuantityButton"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/_dynamic" />
+
+            <TextView
+                android:id="@+id/recyclerPriceTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="50dp"
+                android:text="TextView"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/extraCheeseSelectionCheckBox" />
+
+            <Button
+                android:id="@+id/recyclerAddToOrderButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="32dp"
+                android:layout_marginBottom="8dp"
+                android:text="Add To Order"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <TextView
+                android:id="@+id/pizzaNameTextView"
+                android:layout_width="159dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="TextView"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
