@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="2dp"
-        android:text="Order a Specialty Pizza"
+        android:text="@string/order_a_specialty_pizza"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintBottom_toTopOf="@+id/specialtyPizzaRecyclerView"
         app:layout_constraintEnd_toEndOf="parent"

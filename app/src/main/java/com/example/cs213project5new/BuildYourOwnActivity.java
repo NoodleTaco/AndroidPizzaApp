@@ -3,7 +3,6 @@ package com.example.cs213project5new;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.provider.Settings;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -76,7 +75,7 @@ public class BuildYourOwnActivity extends AppCompatActivity implements AdapterVi
                 Topping toppingEnum = Topping.valueOf(clickedTopping.toUpperCase().replace(" ", "_"));
                 BuildYourOwn buildYourOwn = (BuildYourOwn)pizza;
                 if(!buildYourOwn.buildTopping(toppingEnum)){
-                    showToast("Error: Topping Already on Pizza");
+                    Toast.makeText(BuildYourOwnActivity.this, "Error: Topping Already on on Pizza", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 updateSelectedToppingsList();
@@ -91,7 +90,8 @@ public class BuildYourOwnActivity extends AppCompatActivity implements AdapterVi
                 Topping toppingEnum = Topping.valueOf(clickedTopping.toUpperCase().replace(" ", "_"));
                 BuildYourOwn buildYourOwn = (BuildYourOwn)pizza;
                 if(!buildYourOwn.removeTopping(toppingEnum)){
-                    showToast("Error: Topping Not On Pizza");
+                    //showToast("Error: Topping Not On Pizza");
+                    Toast.makeText(BuildYourOwnActivity.this, "Error: Topping Not On on Pizza", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 updateSelectedToppingsList();
@@ -112,11 +112,11 @@ public class BuildYourOwnActivity extends AppCompatActivity implements AdapterVi
 
     private void addToOrder() {
         if(pizza.toppings.size() > MAX_NUMBER_OF_TOPPINGS){
-            showToast("Error: More than 7 Toppings selected");
+            AlertDialogMaker.showAlertDialog(this, "Build Your Own Error", "The Pizza cannot have over 7 toppings.");
             return;
         }
 
-        showToast("Pizza Added to Order");
+        Toast.makeText(this, "Pizza Added to Order", Toast.LENGTH_SHORT).show();
         globalStoreOrder.getStoreOrder().getCurrentOrder().addPizzaToOrder(pizza);
         //resetOptions();
         pizza = PizzaMaker.createPizza("BuildYourOwn");
@@ -144,7 +144,8 @@ public class BuildYourOwnActivity extends AppCompatActivity implements AdapterVi
         Topping toppingEnum = Topping.valueOf(clickedTopping.toUpperCase().replace(" ", "_"));
         BuildYourOwn buildYourOwn = (BuildYourOwn)pizza;
         if(!buildYourOwn.buildTopping(toppingEnum)){
-            showToast("Error: Topping Already on Pizza");
+            //showToast("Error: Topping Already on Pizza");
+            Toast.makeText(this, "Error: Topping Already on Pizza", Toast.LENGTH_SHORT).show();
             return;
         }
         updateSelectedToppingsList();
@@ -201,6 +202,7 @@ public class BuildYourOwnActivity extends AppCompatActivity implements AdapterVi
         priceTextView.setText("Price: " + String.format("%.2f", pizza.price()));
     }
 
+    /*
     private void showToast(String message) {
         // Create a Toast object
         Toast toast = Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT);
@@ -208,6 +210,8 @@ public class BuildYourOwnActivity extends AppCompatActivity implements AdapterVi
         // Display the Toast
         toast.show();
     }
+
+     */
 
 
 }

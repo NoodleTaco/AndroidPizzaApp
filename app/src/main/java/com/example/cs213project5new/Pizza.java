@@ -148,6 +148,8 @@ public abstract class Pizza implements Serializable {
             string += "Build Your Own: ";
         }
 
+        //TODO Add other specialty pizzas
+
         for(String topping: Topping.getDisplayNames(this.getToppings())){
             string += topping + ",";
         }

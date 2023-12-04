@@ -8,12 +8,10 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Spinner;
 
 
-import java.lang.reflect.Array;
 import java.util.List;
 
 public class StoreOrderActivity extends AppCompatActivity {
@@ -69,7 +67,7 @@ public class StoreOrderActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(selectedOrder == null){
-                    showToast("Error: No Order Selected");
+                    AlertDialogMaker.showAlertDialog(StoreOrderActivity.this,"Current Order Error" ,"Error: No Pizzas in the Order");
                     return;
                 }
                 globalStoreOrder.getStoreOrder().getOrderList().remove(selectedOrder);
@@ -103,7 +101,6 @@ public class StoreOrderActivity extends AppCompatActivity {
             pizzaOrderListView.setAdapter(adapter);
         }
         else{
-            showToast("Making List Empty");
             ArrayAdapter<Pizza> emptyAdapter = new ArrayAdapter<Pizza>(this, android.R.layout.simple_list_item_1);
             pizzaOrderListView.setAdapter(emptyAdapter);
         }

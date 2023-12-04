@@ -23,8 +23,16 @@ public class SpecialtyPizzaActivity extends AppCompatActivity {
 
         List<SpecialtyPizzaItem> specialtyPizzaList = new ArrayList<SpecialtyPizzaItem>();
 
-        specialtyPizzaList.add(new SpecialtyPizzaItem("Deluxe", R.drawable.build_your_own_activity_image));
-        specialtyPizzaList.add(new SpecialtyPizzaItem("Supreme", R.drawable.build_your_own_activity_image));
+        specialtyPizzaList.add(new SpecialtyPizzaItem("Deluxe", R.drawable.deluxe_image));
+        specialtyPizzaList.add(new SpecialtyPizzaItem("Supreme", R.drawable.supreme_image));
+        specialtyPizzaList.add(new SpecialtyPizzaItem("Meatzza", R.drawable.meatzza_image));
+        specialtyPizzaList.add(new SpecialtyPizzaItem("Seafood", R.drawable.seafood_image));
+        specialtyPizzaList.add(new SpecialtyPizzaItem("Pepperoni", R.drawable.pepperoni_image));
+        specialtyPizzaList.add(new SpecialtyPizzaItem("Veggie", R.drawable.veggie_image));
+        specialtyPizzaList.add(new SpecialtyPizzaItem("MushroomPepperoni", R.drawable.mushroom_pepperoni_image));
+        specialtyPizzaList.add(new SpecialtyPizzaItem("SurfAndTurf", R.drawable.surf_and_turf_image));
+        specialtyPizzaList.add(new SpecialtyPizzaItem("Sweet", R.drawable.sweet_image));
+        specialtyPizzaList.add(new SpecialtyPizzaItem("Disaster", R.drawable.disaster_image));
         specialtyPizzaRecyclerView.setAdapter(new SpecialtyPizzaAdapter(getApplicationContext(), specialtyPizzaList));
     }
 }

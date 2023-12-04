@@ -5,4 +5,24 @@
     <string name="largeRadioButtonText">Large</string>
     <string name="alfredoRadioButtonText">Alfredo</string>
     <string name="tomatoRadioButtonText">Tomato</string>
+    <string name="main_menu">Main Menu</string>
+    <string name="store_order">Store Order</string>
+    <string name="specialty_pizzas">Specialty Pizzas</string>
+    <string name="current_order">Current Order</string>
+    <string name="build_your_own_pizza">Build Your Own Pizza</string>
+    <string name="add_to_order">Add To Order</string>
+    <string name="byo_activity_image">BYO Activity Image</string>
+    <string name="extra_cheese">Extra Cheese</string>
+    <string name="extra_sauce">Extra Sauce</string>
+    <string name="add_topping">Add Topping</string>
+    <string name="selected_toppings_click_to_remove">Selected Toppings, Click to Remove</string>
+    <string name="order_number">TextView</string>
+    <string name="place_order">Place Order</string>
+    <string name="sales_tax">TextView</string>
+    <string name="click_a_pizza_to_remove_it_from_the_orderr">Click A Pizza To Remove It From The Orderr</string>
+    <string name="order_a_specialty_pizza">Order a Specialty Pizza</string>
+    <string name="store_orders">Store Orders</string>
+    <string name="cancel_order">Cancel Order</string>
+    <string name="decrease_quantity">Decrease Quantity</string>
+    <string name="increase_quantity">Increase Quantity</string>
 </resources>

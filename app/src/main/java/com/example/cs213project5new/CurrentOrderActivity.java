@@ -65,7 +65,7 @@ public class CurrentOrderActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(globalStoreOrder.getStoreOrder().getCurrentOrder().getPizzaList().isEmpty()){
-                    showToast("Error: No Pizzas in the Order");
+                    AlertDialogMaker.showAlertDialog(CurrentOrderActivity.this,"Current Order Error" ,"Error: No Pizzas in the Order");
                     return;
                 }
                 globalStoreOrder.getStoreOrder().addOrder();

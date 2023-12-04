@@ -11,10 +11,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="3dp"
-        android:text="Build Your Own Pizza"
+        android:text="@string/build_your_own_pizza"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintEnd_toStartOf="@+id/tableLayout"
-        app:layout_constraintStart_toStartOf="@+id/tableLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
@@ -25,12 +25,13 @@
         android:layout_marginTop="73dp"
         android:layout_marginEnd="2dp"
         android:layout_marginBottom="72dp"
-        android:contentDescription="TODO"
+        android:contentDescription="@string/byo_activity_image"
         android:src="@drawable/build_your_own_activity_image"
         app:layout_constraintBottom_toTopOf="@+id/textView6"
         app:layout_constraintEnd_toStartOf="@+id/sizeRadioGroup"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView"
+        tools:ignore="ImageContrastCheck"
         tools:srcCompat="@drawable/build_your_own_activity_image" />
 
     <RadioGroup
@@ -117,7 +118,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="14dp"
         android:layout_marginEnd="4dp"
-        android:text="Extra Sauce"
+        android:text="@string/extra_sauce"
         app:layout_constraintEnd_toStartOf="@+id/extraCheeseCheckBox"
         app:layout_constraintTop_toBottomOf="@+id/buildYourOwnImageView" />
 
@@ -126,7 +127,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
-        android:text="Extra Cheese"
+        android:text="@string/extra_cheese"
         app:layout_constraintBaseline_toBaselineOf="@+id/extraSauceCheckBox"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -136,7 +137,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="22dp"
         android:layout_marginTop="307dp"
-        android:text="Add Topping"
+        android:text="@string/add_topping"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintStart_toStartOf="@+id/allToppingsListView"
         app:layout_constraintTop_toTopOf="parent" />
@@ -159,7 +160,7 @@
         android:layout_height="0dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="14dp"
-        android:text="Selected Toppings, Click to Remove"
+        android:text="@string/selected_toppings_click_to_remove"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintBottom_toTopOf="@+id/selectedToppingsListView"
         app:layout_constraintEnd_toEndOf="@+id/selectedToppingsListView"
@@ -172,62 +173,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="33dp"
-        android:text="Add To Order"
+        android:text="@string/add_to_order"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/selectedToppingsListView" />
-
-    <TableLayout
-        android:id="@+id/tableLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginBottom="17dp"
-        app:layout_constraintBottom_toTopOf="@+id/sizeRadioGroup"
-        app:layout_constraintStart_toStartOf="@+id/sizeRadioGroup">
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="392dp"
-            android:layout_height="164dp">
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-            </LinearLayout>
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-        </TableRow>
-
-    </TableLayout>
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="-24dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

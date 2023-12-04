@@ -23,6 +23,16 @@ public class PizzaMaker {
                 return new Seafood();
             case "Pepperoni":
                 return new Pepperoni();
+            case "Veggie":
+                return new Veggie();
+            case "MushroomPepperoni":
+                return new MushroomPepperoni();
+            case "Sweet":
+                return new Sweet();
+            case "SurfAndTurf":
+                return new SurfAndTurf();
+            case "Disaster":
+                return new Disaster();
             case "BuildYourOwn":
                 return new BuildYourOwn();
             default:
