@@ -49,8 +49,6 @@ public class SpecialtyPizzaViewHolder extends RecyclerView.ViewHolder{
         smallRadioButton = itemView.findViewById(R.id.smallRadioButton);
         mediumRadioButton = itemView.findViewById(R.id.mediumRadioButton);
         largeRadioButton = itemView.findViewById(R.id.largeRadioButton);
-        tomatoRadioButton = itemView.findViewById(R.id.tomatoSelectionRadioButton);
-        alfredoRadioButton = itemView.findViewById(R.id.alfredoSelectionRadioButton);
         extraSauceCheckBox = itemView.findViewById(R.id.extraSauceSelectionCheckBox);
         extraCheeseCheckBox = itemView.findViewById(R.id.extraCheeseSelectionCheckBox);
         toppingsListView = itemView.findViewById(R.id.recyclerToppingsListView);

@@ -11,6 +11,10 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+/**
+ * The Activity class of the Current Order Screen
+ * @author Donald Yubeaton, Michael Kassie
+ */
 public class CurrentOrderActivity extends AppCompatActivity {
 
     private TextView orderNumberTextView, subtotalTextView, salesTaxTextView, totalPriceTextView;
@@ -23,6 +27,9 @@ public class CurrentOrderActivity extends AppCompatActivity {
 
 
 
+    /**
+     * Initializes global variables and calls initialization methods for the rest of the components
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +46,9 @@ public class CurrentOrderActivity extends AppCompatActivity {
         updateSalesPrices();
     }
 
+    /**
+     * Initializes the component variables and assigns their methods
+     */
     private void initializeComponents(){
         orderNumberTextView = findViewById(R.id.orderNumberTextView);
         subtotalTextView = findViewById(R.id.subtotalTextView);
@@ -47,6 +57,9 @@ public class CurrentOrderActivity extends AppCompatActivity {
         pizzaListView = findViewById(R.id.pizzaOrderListView);
         placeOrderButton = findViewById(R.id.placeOrderButton);
 
+        /**
+         * Sets the click listener for the list view to remove pizzas on click
+         */
         pizzaListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -61,6 +74,9 @@ public class CurrentOrderActivity extends AppCompatActivity {
             }
         });
 
+        /**
+         * Sets the on click listener for place order button
+         */
         placeOrderButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -77,6 +93,10 @@ public class CurrentOrderActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Method to display a toast given a message
+     * @param message The message to be displayed in the toast
+     */
     private void showToast(String message) {
         // Create a Toast object
         Toast toast = Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT);
@@ -85,16 +105,25 @@ public class CurrentOrderActivity extends AppCompatActivity {
         toast.show();
     }
 
+    /**
+     * Updates the pizza list view with the current list of pizzas
+     */
     private void updatePizzaListView(){
         ArrayAdapter<Pizza> adapter = new ArrayAdapter<Pizza>(this, android.R.layout.simple_list_item_1, globalStoreOrder.getStoreOrder().getCurrentOrder().getPizzaList());
 
         pizzaListView.setAdapter(adapter);
     }
 
+    /**
+     * Updates the order number display
+     */
     private void updateOrderNumber(){
         orderNumberTextView.setText("Order Number: " + globalStoreOrder.getStoreOrder().getCurrentOrder().getOrderNumber());
     }
 
+    /**
+     * Updates the sales prices display
+     */
     private void updateSalesPrices(){
         subtotalTextView.setText("Subtotal: " + String.format("%.2f", globalStoreOrder.getStoreOrder().getCurrentOrder().getSubTotal()));
         salesTaxTextView.setText("Sales Tax: " + String.format("%.2f", globalStoreOrder.getStoreOrder().getCurrentOrder().getSalesTax()));

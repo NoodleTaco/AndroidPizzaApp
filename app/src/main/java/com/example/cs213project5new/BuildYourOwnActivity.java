@@ -15,9 +15,15 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+/**
+ * The Activity class of the BuildYourOwn Screen
+ * @author Donald Yubeaton, Michael Kassie
+ */
 public class BuildYourOwnActivity extends AppCompatActivity implements AdapterView.OnItemClickListener{
 
     static final int MAX_NUMBER_OF_TOPPINGS = 7;
+
+    static final int MIN_NUMBER_OF_TOPPINGS = 3;
 
     private RadioButton smallSizeRadioButton, mediumSizeRadioButton, largeSizeRadioButton,
             tomatoRadioButton, alfredoRadioButton;
@@ -38,6 +44,9 @@ public class BuildYourOwnActivity extends AppCompatActivity implements AdapterVi
     private Pizza pizza;
 
 
+    /**
+     * Initializes global variables and calls initialization methods for the rest of the components
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,6 +64,9 @@ public class BuildYourOwnActivity extends AppCompatActivity implements AdapterVi
 
     }
 
+    /**
+     * Initializes the component variables and assigns their methods
+     */
     private void initializeComponents(){
         priceTextView = findViewById(R.id.priceTextView);
 
@@ -67,6 +79,9 @@ public class BuildYourOwnActivity extends AppCompatActivity implements AdapterVi
 
         allToppingsListView.setAdapter(adapter);
 
+        /**
+         * Click Listener to add toppings to the pizza
+         */
         allToppingsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -83,6 +98,9 @@ public class BuildYourOwnActivity extends AppCompatActivity implements AdapterVi
             }
         });
 
+        /**
+         * Click Listener to remove toppings from the pizza
+         */
         selectedToppingsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -101,6 +119,9 @@ public class BuildYourOwnActivity extends AppCompatActivity implements AdapterVi
 
         addToOrderButton = findViewById(R.id.addToOrderButton);
 
+        /**
+         * Click listener that calls the addToOrder method
+         */
         addToOrderButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -110,34 +131,44 @@ public class BuildYourOwnActivity extends AppCompatActivity implements AdapterVi
 
     }
 
+    /**
+     * Adds the BuildYourOwn Pizza to the current order
+     */
     private void addToOrder() {
         if(pizza.toppings.size() > MAX_NUMBER_OF_TOPPINGS){
             AlertDialogMaker.showAlertDialog(this, "Build Your Own Error", "The Pizza cannot have over 7 toppings.");
             return;
         }
 
+        if(pizza.toppings.size() < MIN_NUMBER_OF_TOPPINGS){
+            AlertDialogMaker.showAlertDialog(this, "Build Your Own Error", "The Pizza cannot have less than 3 toppings.");
+            return;
+        }
+
         Toast.makeText(this, "Pizza Added to Order", Toast.LENGTH_SHORT).show();
         globalStoreOrder.getStoreOrder().getCurrentOrder().addPizzaToOrder(pizza);
-        //resetOptions();
         pizza = PizzaMaker.createPizza("BuildYourOwn");
         buildYourOwnOptions();
         updateSelectedToppingsList();
     }
 
-    private void resetOptions() {
-        smallSizeRadioButton.setChecked(true);
-        tomatoRadioButton.setChecked(true);
-        extraSauceCheckBox.setChecked(false);
-        extraCheeseCheckBox.setChecked(false);
-        updateTotalPrice();
-    }
-
+    /**
+     * Updates the toppings displayed in the listView
+     */
     private void updateSelectedToppingsList() {
         String[] toppingsList = Topping.getDisplayNames(pizza.getToppings());
         ArrayAdapter adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, toppingsList);
         selectedToppingsListView.setAdapter(adapter);
     }
 
+    /**
+     * Handles the list view click to add a pizza topping
+     * @param parent The AdapterView where the click happened.
+     * @param view The view within the AdapterView that was clicked (this
+     *            will be a view provided by the adapter)
+     * @param position The position of the view in the adapter.
+     * @param id The row id of the item that was clicked.
+     */
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         String clickedTopping = (String) parent.getItemAtPosition(position);
@@ -154,7 +185,9 @@ public class BuildYourOwnActivity extends AppCompatActivity implements AdapterVi
     }
 
 
-
+    /**
+     * Initializes the button and check box components and assigns their listeners
+     */
     private void initializeOptions(){
         smallSizeRadioButton = findViewById(R.id.smallSizeRadioButton);
         mediumSizeRadioButton = findViewById(R.id.mediumSizeRadioButton);
@@ -175,6 +208,9 @@ public class BuildYourOwnActivity extends AppCompatActivity implements AdapterVi
         extraCheeseCheckBox.setOnCheckedChangeListener((buttonView, isChecked) -> buildYourOwnOptions());
     }
 
+    /**
+     * Updates the pizza based on the currently selected options
+     */
     private void buildYourOwnOptions(){
         BuildYourOwn buildYourOwn = (BuildYourOwn)pizza;
         if (smallSizeRadioButton.isChecked()) {
@@ -198,20 +234,13 @@ public class BuildYourOwnActivity extends AppCompatActivity implements AdapterVi
         updateTotalPrice();
     }
 
+    /**
+     * Updates the price display
+     */
     private void updateTotalPrice() {
         priceTextView.setText("Price: " + String.format("%.2f", pizza.price()));
     }
 
-    /*
-    private void showToast(String message) {
-        // Create a Toast object
-        Toast toast = Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT);
-
-        // Display the Toast
-        toast.show();
-    }
-
-     */
 
 
 }

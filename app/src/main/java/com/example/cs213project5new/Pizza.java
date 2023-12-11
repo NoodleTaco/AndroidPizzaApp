@@ -128,28 +128,35 @@ public abstract class Pizza implements Serializable {
     @Override
     public String toString(){
         String string = "";
-
         if(this.getClass() == Deluxe.class){
             string += "Deluxe: ";
-        }
-        else if(this.getClass() == Supreme.class){
+        }else if(this.getClass() == Supreme.class){
             string += "Supreme: ";
-        }
-        else if(this.getClass() == Meatzza.class){
+        }else if(this.getClass() == Meatzza.class){
             string += "Meatzza: ";
-        }
-        else if(this.getClass() == Seafood.class){
+        }else if(this.getClass() == Seafood.class){
             string += "Seafood: ";
-        }
-        else if(this.getClass() == Pepperoni.class){
+        }else if(this.getClass() == Pepperoni.class){
             string += "Pepperoni: ";
+        }
+        else if(this.getClass() == Veggie.class){
+            string += "Veggie: ";
+        }
+        else if(this.getClass() == MushroomPepperoni.class){
+            string += "Mushroom Pepperoni: ";
+        }
+        else if(this.getClass() == SurfAndTurf.class){
+            string += "SurfAndTurf: ";
+        }
+        else if(this.getClass() == Sweet.class){
+            string += "Sweet: ";
+        }
+        else if(this.getClass() == Disaster.class){
+            string += "Disaster: ";
         }
         else if(this.getClass() == BuildYourOwn.class){
             string += "Build Your Own: ";
         }
-
-        //TODO Add other specialty pizzas
-
         for(String topping: Topping.getDisplayNames(this.getToppings())){
             string += topping + ",";
         }

@@ -36,7 +36,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:layout_marginEnd="48dp"
+                android:layout_marginEnd="80dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/recyclerPriceTextView" />
@@ -91,50 +91,24 @@
                     android:text="@string/largeRadioButtonText" />
             </RadioGroup>
 
-            <RadioGroup
-                android:id="@+id/radioGroup4"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginBottom="3dp"
-                app:layout_constraintBottom_toTopOf="@+id/extraSauceSelectionCheckBox"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/radioGroup3"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <RadioButton
-                    android:id="@+id/tomatoSelectionRadioButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:checked="true"
-                    android:text="@string/tomatoRadioButtonText" />
-
-                <RadioButton
-                    android:id="@+id/alfredoSelectionRadioButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/alfredoRadioButtonText" />
-            </RadioGroup>
-
             <CheckBox
                 android:id="@+id/extraSauceSelectionCheckBox"
                 android:layout_width="121dp"
                 android:layout_height="49dp"
-                android:layout_marginBottom="5dp"
                 android:text="@string/extra_sauce"
                 app:layout_constraintBottom_toTopOf="@+id/extraCheeseSelectionCheckBox"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/extraCheeseSelectionCheckBox"
-                app:layout_constraintTop_toBottomOf="@+id/radioGroup4" />
+                app:layout_constraintStart_toStartOf="@+id/extraCheeseSelectionCheckBox" />
 
             <CheckBox
                 android:id="@+id/extraCheeseSelectionCheckBox"
                 android:layout_width="115dp"
                 android:layout_height="52dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginBottom="190dp"
                 android:text="@string/extra_cheese"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/radioGroup3" />
+                app:layout_constraintBottom_toTopOf="@+id/increaseQuantityButton"
+                app:layout_constraintEnd_toEndOf="parent" />
 
             <ListView
                 android:id="@+id/recyclerToppingsListView"
@@ -163,8 +137,8 @@
                 android:id="@+id/recyclerPriceTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="50dp"
+                android:layout_marginTop="80dp"
+                android:layout_marginEnd="76dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/extraCheeseSelectionCheckBox" />
