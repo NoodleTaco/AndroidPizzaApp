@@ -8,11 +8,18 @@ import java.util.ArrayList;
 import java.util.List;
 import android.os.Bundle;
 
+/**
+ * The Activity class of the Specialty Pizza Screen
+ * @author Donald Yubeaton, Michael Kassie
+ */
 public class SpecialtyPizzaActivity extends AppCompatActivity {
 
     RecyclerView specialtyPizzaRecyclerView;
 
 
+    /**
+     * Initializes the recycler view that represents all the Specialty Pizzas
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

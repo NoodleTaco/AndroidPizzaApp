@@ -14,6 +14,10 @@ import android.widget.Spinner;
 
 import java.util.List;
 
+/**
+ * The Activity class of the Store Order Screen
+ * @author Donald Yubeaton, Michael Kassie
+ */
 public class StoreOrderActivity extends AppCompatActivity {
 
 
@@ -26,6 +30,9 @@ public class StoreOrderActivity extends AppCompatActivity {
 
     private Order selectedOrder;
 
+    /**
+     * Initializes global variables and calls initialization methods for the rest of the components
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,15 +48,19 @@ public class StoreOrderActivity extends AppCompatActivity {
             selectedOrder = (Order) orderSpinner.getSelectedItem();
             updatePizzaOrderListView();
         }
-
-
     }
 
+    /**
+     * Initializes the Store Order's components and sets their methods
+     */
     private void initializeComponents() {
         pizzaOrderListView = findViewById(R.id.pizzaOrderListView);
         orderSpinner = findViewById(R.id.orderSpinner);
         cancelOrderButton = findViewById(R.id.cancelOrderButton);
 
+        /**
+         * Set the spinner to display the content of the order that is selected
+         */
         orderSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
@@ -63,6 +74,9 @@ public class StoreOrderActivity extends AppCompatActivity {
             }
         });
 
+        /**
+         * Set the functionality of canceling the selected order to the button
+         */
         cancelOrderButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -87,6 +101,9 @@ public class StoreOrderActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Updates the order spinner
+     */
     private void updateOrderSpinner(){
         List<Order> orderList = globalStoreOrder.getStoreOrder().getOrderList();
         ArrayAdapter<Order> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, orderList);
@@ -94,6 +111,9 @@ public class StoreOrderActivity extends AppCompatActivity {
         orderSpinner.setAdapter(adapter);
     }
 
+    /**
+     * Updates the order content display based on the selected order
+     */
     private void updatePizzaOrderListView(){
         if(selectedOrder != null){
             ArrayAdapter<Pizza> adapter = new ArrayAdapter<Pizza>(this, android.R.layout.simple_list_item_1, selectedOrder.getPizzaList());
@@ -107,6 +127,10 @@ public class StoreOrderActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Method used to show a toast
+     * @param message Message displayed by the toast
+     */
     private void showToast(String message) {
         // Create a Toast object
         Toast toast = Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT);
